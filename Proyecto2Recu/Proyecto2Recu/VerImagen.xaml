@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:Converters="clr-namespace:Proyecto2Recu.Converters"
+             x:Class="Proyecto2Recu.VerImagen">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converters:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Margin="10" >
+            <Label  Text="{Binding Name}"
+                    Margin="15,10,15,0" 
+                    TextColor="Black"
+                    FontSize="20" 
+                    FontFamily="NewYork"/>
+            <Label  Text="{Binding Desc}"
+                    Margin="30,0,20,0" 
+                    TextColor="Black"
+                    FontSize="20" 
+                    FontFamily="NewYork"/>
+            <Image x:Name="fotodb" 
+                   Source="{Binding Imagen, Converter={StaticResource ByteArrayToImage}}" 
+                   HorizontalOptions="FillAndExpand" 
+                   VerticalOptions="FillAndExpand" 
+                   Margin="15,-50,15,0"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
